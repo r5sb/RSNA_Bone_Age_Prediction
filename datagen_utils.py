@@ -26,8 +26,8 @@ def createtestGenerator( X, I,batch_size):
         batches = test_datagen.flow( X[idx], batch_size=batch_size, shuffle=False)
         idx0 = 0
         for batch in batches:
-            idx1 = idx0 + batch[0].shape[0]
-            yield [batch[0], I[ idx[ idx0:idx1 ] ]]
+            idx1 = idx0 + batch.shape[0]
+            yield [batch, I[ idx[ idx0:idx1 ] ]]
             idx0 = idx1
             if idx1 >= X.shape[0]:
                 break
